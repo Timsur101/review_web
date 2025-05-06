@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="max-w-2xl mx-auto bg-white p-6 rounded-lg shadow-md mt-8">
+    <h2 class="text-2xl font-bold mb-4 text-center">Добавить проект</h2>
+    <form method="POST">
+        <div class="mb-4">
+            <label for="title" class="block text-gray-700">Название проекта:</label>
+            <input type="text" name="title" class="w-full p-2 border rounded" required>
+        </div>
+        <div class="mb-4">
+            <label for="description" class="block text-gray-700">Описание:</label>
+            <textarea name="description" class="w-full p-2 border rounded" required></textarea>
+        </div>
+        <div class="mb-4">
+            <label for="repository_url" class="block text-gray-700">URL репозитория:</label>
+            <input type="url" name="repository_url" class="w-full p-2 border rounded" required>
+        </div>
+        <button type="submit" class="w-full bg-indigo-600 text-white p-2 rounded hover:bg-indigo-700">Отправить</button>
+    </form>
+</div>
+{% endblock %}

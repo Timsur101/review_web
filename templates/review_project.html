@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="max-w-2xl mx-auto bg-white p-6 rounded-lg shadow-md mt-8">
+    <h2 class="text-2xl font-bold mb-4 text-center">Оценить проект: {{ project.title }}</h2>
+    <form method="POST">
+        <div class="mb-4">
+            <label for="rating" class="block text-gray-700">Оценка (1-10):</label>
+            <input type="number" name="rating" min="1" max="10" class="w-full p-2 border rounded" required>
+        </div>
+        <div class="mb-4">
+            <label for="comment" class="block text-gray-700">Комментарий:</label>
+            <textarea name="comment" class="w-full p-2 border rounded"></textarea>
+        </div>
+        <button type="submit" class="w-full bg-indigo-600 text-white p-2 rounded hover:bg-indigo-700">Отправить отзыв</button>
+    </form>
+</div>
+{% endblock %}
