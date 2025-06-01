@@ -1,5 +1,7 @@
 Сайт для оценки студенческих проектов
 
-venv\Scripts\activate
-pip install -r requirements.txt
+как запустить: 
+python -m venv venv 
+venv\Scripts\activate 
+pip install -r requirements.txt 
 python app.py
