@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
-<h2 class="text-3xl font-bold mb-6 text-gray-800">Проекты</h2>
-<div class="grid gap-6">
+<h2>Проекты</h2>
+<div class="grid">
     {% for project in projects %}
-    <div class="bg-white p-6 rounded-lg shadow-md">
-        <h3 class="text-xl font-semibold text-indigo-600">{{ project.title }}</h3>
+    <div class="project-card">
+        <h3>{{ project.title }}</h3>
         <p class="text-gray-600 mt-2"><strong>Студент:</strong> {{ project.student_email }}</p>
         <p class="text-gray-600 mt-2"><strong>Описание:</strong> {{ project.description }}</p>
         <p class="text-gray-600 mt-2"><strong>Средняя оценка:</strong> {{ project.avg_rating|round(1) if project.avg_rating else 'Нет оценок' }}</p>
-        <p class="text-gray-600 mt-2"><strong>Репозиторий:</strong> <a href="{{ project.repository_url }}" target="_blank" class="text-indigo-600 hover:underline">{{ project.repository_url }}</a></p>
+        <p class="text-gray-600 mt-2"><strong>Репозиторий:</strong> <a href="{{ project.repository_url }}" target="_blank" class="text-indigo-600">{{ project.repository_url }}</a></p>
         <div class="mt-4">
             <strong>Отзывы:</strong>
             {% if project.reviews %}
@@ -23,10 +23,10 @@
         </div>
         <div class="mt-4 flex space-x-4">
             {% if session.role == 'reviewer' %}
-                <a href="{{ url_for('review_project', project_id=project.id_project) }}" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Оценить</a>
+                <a href="{{ url_for('review_project', project_id=project.id_project) }}" class="bg-green-500 text-white">Оценить</a>
             {% endif %}
             {% if session.role == 'admin' %}
-                <a href="{{ url_for('delete_project', project_id=project.id_project) }}" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Удалить</a>
+                <a href="{{ url_for('delete_project', project_id=project.id_project) }}" class="bg-red-500 text-white">Удалить</a>
             {% endif %}
         </div>
     </div>

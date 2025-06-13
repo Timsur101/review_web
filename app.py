@@ -7,7 +7,7 @@ app.secret_key = 'anton'
 db = mysql.connector.connect(
     host="localhost",
     user="root",
-    password="Timsur12!",
+    password="password!",
     database="review_web"
 )
 cursor = db.cursor(dictionary=True)
